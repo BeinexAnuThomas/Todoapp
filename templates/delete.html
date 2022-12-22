@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+    {% block body %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="login shadow">
+                    <form method="post"  id="form"  >
+                        <!-- enctype="multipart/form-data" -->
+                        <h2>TODO APP</h2>
+                        {% csrf_token %}
+                        <h4>Are you sure this task is done? </h4>
+                        <!-- <div class="input">
+                            <label for="name">Task Name </label><br>
+                            <input id="t1" class="tb" type="text" name="task" placeholder="Enter your Task Name"><br><br>
+                        </div>
+                        <div class="input">
+                            <label for="priority">Priority </label><br>
+                            <input id="t1" class="tb" type="text" name="priority" placeholder="Enter the task priority"><br><br>
+                        </div> -->
+                        
+                        <br><br>
+                        <!-- <button type="reset" class="btn">Reset</button> -->
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>  
+            </div>
+           
+    {% endblock %}

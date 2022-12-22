@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+    {% block body %}
+    <div class="container-fluid">
+        <div class="row">
+           <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>ToDo</h1>
+                </div>
+            </div>
+           </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 ">
+                <div class="login shadow">
+                    <form method="post"  id="form"  enctype="multipart/form-data">
+                        <!-- enctype="multipart/form-data" -->
+                        <h2>TODO APP</h2>
+                        {% csrf_token %}
+                        
+                        <div class="input">
+                            <label for="name">Task Name </label><br>
+                            <input id="t1" class="tb" type="text" name="task" placeholder="Enter your Task Name"><br><br>
+                        </div>
+                        <div class="input">
+                            <label for="priority">Priority </label><br>
+                            <input id="t1" class="tb" type="text" name="priority" placeholder="Enter the task priority"><br><br>
+                        </div>
+                        <div class="input">
+                            <label for="date">Date  </label><br>
+                            <input id="t1" class="tb" type="date" name="date" placeholder="Enter the Date"><br><br>
+                        </div>
+                        
+                        <br><br>
+                        <button type="reset" class="btn">Reset</button>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                </div>  
+            </div>
+            <div class="col-md-6"><br>
+                <h4>Task to be Completed</h4>
+                {% for i in task1 %}
+                <div class="shadow card shadow p-3 mb-5">
+                    <div class="card-body">
+                        <h5 class="card-title">Task Name : {{i.name}}</h5>
+                        <p><b>Priority : {{i.priority}}</b></p>
+                        <p><b>Date : {{i.date}}</b></p>
+                        <a class="btn btn-danger btn1" href="{% url 'delete' i.id %}">Done</a> 
+                        <a class="btn btn-success btn1" href="{% url 'update' i.id %}">Update</a>                    
+                    </div>
+                </div><br>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+       
+
+        
+    {% endblock %}
